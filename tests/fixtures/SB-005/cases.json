@@ -1,0 +1,22 @@
+{
+  "ruleId": "SB-005",
+  "purpose": "交底记录应能识别工程部位与交底人（GB 50870-2013 第8.2.1条的依据要求）",
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "SB-005-compliant.json",
+      "expect": {
+        "ruleId": "SB-005",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "SB-005-unsafe.json",
+      "expect": {
+        "ruleId": "SB-005",
+        "count": 1
+      }
+    }
+  ]
+}

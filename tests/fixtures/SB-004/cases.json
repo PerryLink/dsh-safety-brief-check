@@ -1,0 +1,26 @@
+{
+  "ruleId": "SB-004",
+  "purpose": "实际参建工种应出现在交底记录的工种列表中（JGJ 59-2011 要求分部分项交底）",
+  "workTrades": [
+    "钢筋工",
+    "木工"
+  ],
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "SB-004-compliant.json",
+      "expect": {
+        "ruleId": "SB-004",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "SB-004-unsafe.json",
+      "expect": {
+        "ruleId": "SB-004",
+        "count": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "ruleId": "SB-002",
+  "purpose": "被交底人应全部签字确认（国务院令第393号第二十七条，行政法规，故为 error）",
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "SB-002-compliant.json",
+      "expect": {
+        "ruleId": "SB-002",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "SB-002-unsafe.json",
+      "expect": {
+        "ruleId": "SB-002",
+        "count": 1
+      }
+    }
+  ]
+}

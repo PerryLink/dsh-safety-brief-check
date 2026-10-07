@@ -1,0 +1,22 @@
+{
+  "ruleId": "SB-003",
+  "purpose": "交底日期应不晚于施工日期（第二十七条\"施工前\"的时间前提，属原则性推论故为 warn）",
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "SB-003-compliant.json",
+      "expect": {
+        "ruleId": "SB-003",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "SB-003-unsafe.json",
+      "expect": {
+        "ruleId": "SB-003",
+        "count": 1
+      }
+    }
+  ]
+}

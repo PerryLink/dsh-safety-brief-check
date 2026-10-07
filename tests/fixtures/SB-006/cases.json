@@ -1,0 +1,31 @@
+{
+  "ruleId": "SB-006",
+  "purpose": "交底记录应经交底人、被交底人、专职安全员三方签字确认（JGJ 59-2011 3.1.3-3-4，推荐性条款故为 warn）",
+  "configure": {
+    "SB-006": {
+      "parties": [
+        "交底人",
+        "被交底人",
+        "专职安全员"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "SB-006-compliant.json",
+      "expect": {
+        "ruleId": "SB-006",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "SB-006-unsafe.json",
+      "expect": {
+        "ruleId": "SB-006",
+        "count": 1
+      }
+    }
+  ]
+}

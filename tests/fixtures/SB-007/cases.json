@@ -1,0 +1,31 @@
+{
+  "ruleId": "SB-007",
+  "purpose": "交底内容应体现危险因素、操作规程与应急措施（GB 50870-2013 第8.2.3条六项要素）",
+  "configure": {
+    "SB-007": {
+      "terms": [
+        "危险",
+        "操作规程",
+        "应急"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "SB-007-compliant.json",
+      "expect": {
+        "ruleId": "SB-007",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "SB-007-unsafe.json",
+      "expect": {
+        "ruleId": "SB-007",
+        "count": 1
+      }
+    }
+  ]
+}

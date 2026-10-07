@@ -1,0 +1,33 @@
+{
+  "ruleId": "SB-001",
+  "purpose": "交底记录应填写本机构要求的栏目（栏目清单按 GB 50870-2013 第8.2.3条与 JGJ 59-2011 3.1.3 配置）",
+  "configure": {
+    "SB-001": {
+      "requiredFields": [
+        "工程名称",
+        "交底部位",
+        "交底日期",
+        "交底人",
+        "被交底人"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "SB-001-compliant.json",
+      "expect": {
+        "ruleId": "SB-001",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "SB-001-unsafe.json",
+      "expect": {
+        "ruleId": "SB-001",
+        "count": 1
+      }
+    }
+  ]
+}
