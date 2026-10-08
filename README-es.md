@@ -1,4 +1,25 @@
-# dsh-safety-brief-check
+# dsh-safety-brief-check — Comprobación de la completitud del registro de instrucción técnica de seguridad y del cierre de firmas
+
+`dsh-safety-brief-check` lee un registro de 安全技术交底记录 —sus campos de cabecera, sus listas de 被交底人 y de 签字, y sus listas de 工种— y comprueba la completitud y el cierre de ese propio registro: que estén rellenas las columnas que exige su formulario, que toda persona instruida figure entre los firmantes y que nadie firme dos veces, que la 交底日期 no sea posterior a la 施工日期, que los oficios que ejecutan el trabajo aparezcan en la lista de 工种 instruidos, que el registro identifique su 工程部位 y su 交底人, y que reserve un lugar para las firmas del 交底人, del 被交底人 y del 专职安全员.
+
+## Qué responde
+
+| Usted pregunta | Qué responde |
+|---|---|
+| Una de las personas instruidas nunca firmó. ¿Qué dice el informe? | `SB-002` —la única regla de nivel `error` del paquete— compara la lista de 被交底人 con la lista de 签字 e informa de cada persona que no aparece en ella; un nombre que aparece dos veces en la lista de firmas se informa por separado, porque ambas lagunas se corrigen de forma distinta. Solo compara las dos listas: no puede saber si una firma es de la propia persona y no exige firma individual — si su institución admite una firma colectiva, indíquelo en el material o incluya la regla en `disabledRules`. |
+| La 交底日期 es posterior a la 施工日期. ¿Es un error? | `SB-003` lo informa, y el mismo día cuenta como no posterior. La regla está limitada a `warn`: 第二十七条 da 施工前 como premisa temporal pero no enuncia esa comparación, así que el hallazgo es una pista para revisión — una instrucción añadida a mitad de obra por un peligro detectado después es legítimamente posterior y el registro debería decirlo. Una fecha que no se puede analizar se informa por sí sola en lugar de omitirse en silencio. |
+| ¿Qué columnas debe rellenar el registro para pasar la comprobación? | `SB-001` lee `requiredFields`, que el paquete trae vacío, así que informa de `skipped` (未配置) en lugar de pasar. Cuando indique las columnas de su formulario, informa de cada una que falte o esté vacía — una cadena vacía cuenta como no rellenada — y no juzga si lo escrito en ellas es correcto. |
+| El registro tiene columna de 被交底人 pero ningún sitio para el 专职安全员. | `SB-006` comprueba en la cabecera que haya un sitio para las tres partes — 交底人, 被交底人 y 专职安全员 — e informa de las que no tienen columna; los nombres de las columnas pueden sustituirse según su formulario. Sigue en `warn` porque el 第3.1.3条 de JGJ 59-2011 es una cláusula recomendatoria de evaluación (sus únicas disposiciones obligatorias, 第4.0.1、5.0.3条, fueron derogadas por el 住房和城乡建设部公告 2022 年第 164 号). Pregunta si el sitio existe, no si alguien firmó allí: eso es la pregunta de `SB-002`. |
+| Los oficios que trabajaron en esa parte no figuran en la lista de 工种 de la instrucción. | `SB-005` compara los oficios que ejecutan el trabajo con la lista de 工种 del registro e informa de los que no aparecen. Está limitada a `warn` porque JGJ 59-2011 pide instrucciones 分部分项 pero no fija ninguna tabla obligatoria de correspondencia con los oficios, e informa de `skipped` cuando ni el material ni el parámetro `workTrades` nombran los oficios que trabajan, ya que no codifica ninguna lista de oficios. Solo compara nombres, de modo que 钢筋工 y 钢筋班组 cuentan como distintos, y no juzga si el contenido de la instrucción aborda ese oficio. |
+| El registro no dice qué 工程部位 cubre ni quién dio la instrucción. | `SB-004` exige que la cabecera identifique el 工程部位 (`subject`) y el 交底人 (`briefer`), e informa del que falte; con `requireHeader` en false la regla no se ejecuta. Está limitada a `warn` porque el 第8.2.1条 de GB 50870-2013 no enuncia campos de cabecera: sin ellos el registro no puede mostrar quién instruyó a quién sobre qué parte, así que el hallazgo es una pista de trazabilidad y no la afirmación de que la cláusula se haya incumplido. |
+
+## Normas que sigue
+
+| Documento | Número | Reglas que lo citan |
+|---|---|---|
+| 《建筑施工安全技术统一规范》 | GB 50870-2013 | SB-001, SB-002, SB-004, SB-007 |
+| 《建筑施工安全检查标准》 | JGJ 59-2011 | SB-001, SB-002, SB-005, SB-006, SB-007 |
+| 《建设工程安全生产管理条例》 | 国务院令第393号 | SB-002, SB-003 |
 
 **Boundary:** this plugin checks one **安全技术交底记录** for what a record can be held to — that the
 columns your form requires are filled, that **everyone briefed appears as having signed**, that the

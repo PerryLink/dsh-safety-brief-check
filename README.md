@@ -1,4 +1,25 @@
-# dsh-safety-brief-check
+# dsh-safety-brief-check — Safety technical briefing record completeness and signature closure check
+
+`dsh-safety-brief-check` reads one 安全技术交底记录 — its header fields, its 被交底人 and 签字 lists, and its 工种 lists — and checks that record's own completeness and closure: that the columns your form requires are filled, that every person briefed appears among the signers and that nobody signs twice, that the 交底日期 is not later than the 施工日期, that the trades at work appear in the briefed 工种 list, that the record identifies its 工程部位 and its 交底人, and that it carries a place for the 交底人, 被交底人 and 专职安全员 signatures.
+
+## What it answers
+
+| You ask | What it answers |
+|---|---|
+| One of the people briefed never signed. What does the report say? | `SB-002` — the pack's only `error`-level rule — compares the 被交底人 list with the 签字 list and reports every person who does not appear in it; a name that appears twice in the signature list is reported separately, because the two gaps need different fixes. It only compares the two lists: it cannot tell whether a signature is the person's own, and it does not require per-person signing — if your institution allows one signature for a group, say so in the material or list the rule under `disabledRules`. |
+| The 交底日期 is later than the 施工日期. Is that an error? | `SB-003` reports it, and the same day counts as not later. The rule is capped at `warn`: 第二十七条 gives 施工前 as a time premise but does not spell out that comparison, so the finding is a lead for review — a briefing added mid-job for a hazard found later is legitimately later, and the record should say so. A date that cannot be parsed is reported on its own rather than dropped in silence. |
+| Which columns must the record fill before the check passes? | `SB-001` reads `requiredFields`, which the pack ships empty, so it reports `skipped` (未配置) instead of passing. Once you list your form's columns it reports each one that is absent or empty — an empty string counts as unfilled — and it does not judge whether what was written in them is correct. |
+| The record has a 被交底人 column but no place for the 专职安全员. | `SB-006` checks the header for a place for each of the three parties — 交底人, 被交底人, 专职安全员 — and reports the ones with no column; the column names may be replaced to match your form. It stays at `warn` because JGJ 59-2011's 第3.1.3条 is a recommendatory assessment clause (the standard's mandatory 第4.0.1、5.0.3条 were annulled by 住房和城乡建设部公告 2022 年第 164 号). It asks whether the place exists, not whether anyone signed there — that is `SB-002`'s question. |
+| The trades that worked on the section are missing from the briefing's 工种 list. | `SB-005` compares the trades at work with the record's 工种 list and reports those that do not appear. It is capped at `warn` because JGJ 59-2011 asks for briefings 分部分项 but sets no mandatory trade mapping, and it reports `skipped` when neither the material nor the `workTrades` parameter names the trades at work — it hard-codes no trade list. It compares names only, so 钢筋工 and 钢筋班组 count as different, and it does not judge whether the briefing content addresses that trade. |
+| The record never says which 工程部位 it covers, or who gave the briefing. | `SB-004` requires the header to identify the 工程部位 (`subject`) and the 交底人 (`briefer`), and reports whichever is missing; with `requireHeader` set to false the rule does not run. It is capped at `warn` because GB 50870-2013 第8.2.1条 does not spell out header fields: without them the record cannot show who briefed whom about which part, so the finding is a traceability lead rather than a statement that the clause was broken. |
+
+## Standards it follows
+
+| Document | Number | Cited by rules |
+|---|---|---|
+| 《建筑施工安全技术统一规范》 | GB 50870-2013 | SB-001, SB-002, SB-004, SB-007 |
+| 《建筑施工安全检查标准》 | JGJ 59-2011 | SB-001, SB-002, SB-005, SB-006, SB-007 |
+| 《建设工程安全生产管理条例》 | 国务院令第393号 | SB-002, SB-003 |
 
 **Boundary:** this plugin checks one **安全技术交底记录** for what a record can be held to — that the
 columns your form requires are filled, that **everyone briefed appears as having signed**, that the
