@@ -49,8 +49,7 @@ was adequate, whether it was targeted at the right hazards, or whether a signatu
 ## Install
 
 ```sh
-pnpm pack
-dsh plugin --profile <name> add ./*.tgz
+dsh plugin --profile <name> add dsh-safety-brief-check
 dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
 ```
 

@@ -60,8 +60,7 @@ signer lists, and its trade lists — applies a versioned rule pack, and returns
 ## Install
 
 ```sh
-pnpm pack
-dsh plugin --profile <name> add ./dsh-safety-brief-check-0.1.0.tgz
+dsh plugin --profile <name> add dsh-safety-brief-check
 dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
 ```
 

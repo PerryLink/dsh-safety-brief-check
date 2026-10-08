@@ -2,4 +2,9 @@
 
 ## 0.1.0
 
-- Initial release — 安全技术交底记录要素齐备性与签字闭环核对（依据公开的安全生产法规与检查标准，仅提示差异，不作出定性结论）
+- Release infrastructure brought to the family standard: `verify:self-contained`,
+  `check:lockfile` and `check:readmes` gates, a `prepublishOnly` that re-runs the whole chain,
+  SECURITY.md, dependabot, and the OpenSSF Scorecard workflow.
+- The README install command now names the published package instead of a local tarball.
+- Rule pack: 7 rules across SB-001..SB-007.
+- Licensed Apache-2.0.
