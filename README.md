@@ -1,6 +1,14 @@
 # dsh-safety-brief-check — Safety technical briefing record completeness and signature closure check
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-safety-brief-check` reads one 安全技术交底记录 — its header fields, its 被交底人 and 签字 lists, and its 工种 lists — and checks that record's own completeness and closure: that the columns your form requires are filled, that every person briefed appears among the signers and that nobody signs twice, that the 交底日期 is not later than the 施工日期, that the trades at work appear in the briefed 工种 list, that the record identifies its 工程部位 and its 交底人, and that it carries a place for the 交底人, 被交底人 and 专职安全员 signatures.
+
+## What it looks like
+
+![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-demo.png)
+
+Real output from this plugin over its own `SB-002` test fixture — not a mock-up. The rule pack ships no invented quotations, so a finding names both the clause it applied and the fact that the clause text was not obtained.
 
 ## What it answers
 
