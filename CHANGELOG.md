@@ -3,6 +3,7 @@
 ## 0.2.4 - 2026-10-17
 
 - Compatibility: declare `engines.dsh` `>=0.2.1-0 <0.3.0`; move `@deepseek-ai/dsh-*` devDependencies to `0.2.1-rc.2`; add `@deepseek-ai/dsh-working-directory`.
+- Rules/docs: `SB-004` is trade coverage (JGJ 59-2011 3.1.3-3-2) and `SB-005` is the header (GB 50870-2013 8.2.1), matching the check functions and fixtures; the evidence record is now in `rules/evidence/clause-verification.md`, so the citation baseline is empty; the README no longer claims every excerpt is a placeholder.
 - Docs: the compatibility table no longer claims `engines.dsh` is undeclared; drop the retired `both` tool mode.
 
 

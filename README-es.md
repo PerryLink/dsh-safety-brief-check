@@ -8,7 +8,7 @@
 
 ![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-demo.png)
 
-Salida real de este plugin sobre su propio fixture de prueba `SB-002` — no es un montaje. El paquete de reglas no inventa citas, así que cada hallazgo nombra la cláusula aplicada y advierte que su texto no se obtuvo.
+Salida real de este plugin sobre su propio fixture de prueba `SB-002` — no es un montaje. El paquete de reglas no inventa citas: cada hallazgo nombra la cláusula aplicada y si su excerpt es una cita literal o una inferencia de principio.
 
 ## Qué responde
 
@@ -18,15 +18,15 @@ Salida real de este plugin sobre su propio fixture de prueba `SB-002` — no es 
 | La 交底日期 es posterior a la 施工日期. ¿Es un error? | `SB-003` lo informa, y el mismo día cuenta como no posterior. La regla está limitada a `warn`: 第二十七条 da 施工前 como premisa temporal pero no enuncia esa comparación, así que el hallazgo es una pista para revisión — una instrucción añadida a mitad de obra por un peligro detectado después es legítimamente posterior y el registro debería decirlo. Una fecha que no se puede analizar se informa por sí sola en lugar de omitirse en silencio. |
 | ¿Qué columnas debe rellenar el registro para pasar la comprobación? | `SB-001` lee `requiredFields`, que el paquete trae vacío, así que informa de `skipped` (未配置) en lugar de pasar. Cuando indique las columnas de su formulario, informa de cada una que falte o esté vacía — una cadena vacía cuenta como no rellenada — y no juzga si lo escrito en ellas es correcto. |
 | El registro tiene columna de 被交底人 pero ningún sitio para el 专职安全员. | `SB-006` comprueba en la cabecera que haya un sitio para las tres partes — 交底人, 被交底人 y 专职安全员 — e informa de las que no tienen columna; los nombres de las columnas pueden sustituirse según su formulario. Sigue en `warn` porque el 第3.1.3条 de JGJ 59-2011 es una cláusula recomendatoria de evaluación (sus únicas disposiciones obligatorias, 第4.0.1、5.0.3条, fueron derogadas por el 住房和城乡建设部公告 2022 年第 164 号). Pregunta si el sitio existe, no si alguien firmó allí: eso es la pregunta de `SB-002`. |
-| Los oficios que trabajaron en esa parte no figuran en la lista de 工种 de la instrucción. | `SB-005` compara los oficios que ejecutan el trabajo con la lista de 工种 del registro e informa de los que no aparecen. Está limitada a `warn` porque JGJ 59-2011 pide instrucciones 分部分项 pero no fija ninguna tabla obligatoria de correspondencia con los oficios, e informa de `skipped` cuando ni el material ni el parámetro `workTrades` nombran los oficios que trabajan, ya que no codifica ninguna lista de oficios. Solo compara nombres, de modo que 钢筋工 y 钢筋班组 cuentan como distintos, y no juzga si el contenido de la instrucción aborda ese oficio. |
-| El registro no dice qué 工程部位 cubre ni quién dio la instrucción. | `SB-004` exige que la cabecera identifique el 工程部位 (`subject`) y el 交底人 (`briefer`), e informa del que falte; con `requireHeader` en false la regla no se ejecuta. Está limitada a `warn` porque el 第8.2.1条 de GB 50870-2013 no enuncia campos de cabecera: sin ellos el registro no puede mostrar quién instruyó a quién sobre qué parte, así que el hallazgo es una pista de trazabilidad y no la afirmación de que la cláusula se haya incumplido. |
+| Los oficios que trabajaron en esa parte no figuran en la lista de 工种 de la instrucción. | `SB-004` compara los oficios que ejecutan el trabajo con la lista de 工种 del registro e informa de los que no aparecen. Está limitada a `warn` porque JGJ 59-2011 pide instrucciones 分部分项 pero no fija ninguna tabla obligatoria de correspondencia con los oficios, e informa de `skipped` cuando ni el material ni el parámetro `workTrades` nombran los oficios que trabajan, ya que no codifica ninguna lista de oficios. Solo compara nombres, de modo que 钢筋工 y 钢筋班组 cuentan como distintos, y no juzga si el contenido de la instrucción aborda ese oficio. |
+| El registro no dice qué 工程部位 cubre ni quién dio la instrucción. | `SB-005` exige que la cabecera identifique el 工程部位 (`subject`) y el 交底人 (`briefer`), e informa del que falte; con `requireHeader` en false la regla no se ejecuta. Está limitada a `warn` porque el 第8.2.1条 de GB 50870-2013 no enuncia campos de cabecera: sin ellos el registro no puede mostrar quién instruyó a quién sobre qué parte, así que el hallazgo es una pista de trazabilidad y no la afirmación de que la cláusula se haya incumplido. |
 
 ## Normas que sigue
 
 | Documento | Número | Reglas que lo citan |
 |---|---|---|
-| 《建筑施工安全技术统一规范》 | GB 50870-2013 | SB-001, SB-002, SB-004, SB-007 |
-| 《建筑施工安全检查标准》 | JGJ 59-2011 | SB-001, SB-002, SB-005, SB-006, SB-007 |
+| 《建筑施工安全技术统一规范》 | GB 50870-2013 | SB-001, SB-002, SB-005, SB-007 |
+| 《建筑施工安全检查标准》 | JGJ 59-2011 | SB-001, SB-002, SB-004, SB-006, SB-007 |
 | 《建设工程安全生产管理条例》 | 国务院令第393号 | SB-002, SB-003 |
 
 **Boundary:** this plugin checks one **安全技术交底记录** for what a record can be held to — that the

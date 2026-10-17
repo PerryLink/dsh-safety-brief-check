@@ -2,7 +2,7 @@ import { readFile, readdir } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { loadRuleset } from '../src/shared/ruleset.ts'
+import { loadRuleset, ruleById } from '../src/shared/ruleset.ts'
 import { parseMaterial } from '../src/parse.ts'
 import { runCheck } from '../src/check.ts'
 import { buildView } from '../src/view.ts'
@@ -362,5 +362,13 @@ describe('shared kit', () => {
   it('reads the supported YAML subset and rejects the rest', () => {
     expect(parseYaml('a: 1\nb:\n  - x\n')).toEqual({ a: 1, b: ['x'] })
     expect(() => parseYaml('a: 1\na: 2\n')).toThrow(/duplicate/)
+  })
+})
+
+describe('rule ids follow the check functions', () => {
+  it('SB-004 is trade coverage and SB-005 is the header', async () => {
+    const ruleset = loadRuleset(await readFile(rulesPath, 'utf8'))
+    expect(ruleById(ruleset, 'SB-004').basis.number).toBe('JGJ 59-2011')
+    expect(ruleById(ruleset, 'SB-005').basis.number).toBe('GB 50870-2013')
   })
 })
