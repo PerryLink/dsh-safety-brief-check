@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-safety-brief-check-hero.png",
+    "kind": "hero",
+    "alt": "dsh-safety-brief-check terminal output",
+    "caption": "Real dsh-safety-brief-check checker output; 37 tests passed."
+  },
+  {
+    "path": "docs/assets/dsh-safety-brief-check-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-safety-brief-check terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]

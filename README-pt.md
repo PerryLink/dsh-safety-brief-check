@@ -6,7 +6,9 @@
 
 ## Como é a saída
 
-![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-demo.png)
+![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-hero.png)
+
+![Animated terminal demo of dsh-safety-brief-check](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-demo.gif)
 
 Saída real deste plugin sobre o seu próprio fixture de teste `SB-002` — não é uma simulação. O pacote de regras não inventa citações: cada achado nomeia a cláusula aplicada e se o seu excerpt é uma citação literal ou uma inferência de princípio.
 

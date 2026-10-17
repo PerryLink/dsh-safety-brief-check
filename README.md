@@ -6,7 +6,9 @@
 
 ## What it looks like
 
-![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-demo.png)
+![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-hero.png)
+
+![Animated terminal demo of dsh-safety-brief-check](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-demo.gif)
 
 Real output from this plugin over its own `SB-002` test fixture — not a mock-up. The rule pack ships no invented quotations: a finding names the clause it applied and whether that excerpt is a verbatim quotation or a derived principle.
 
