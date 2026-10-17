@@ -4,6 +4,13 @@
 
 `dsh-safety-brief-check` एक 安全技术交底记录 पढ़ता है — उसके हेडर फ़ील्ड, 被交底人 और 签字 की सूचियाँ, और 工种 की सूचियाँ — और उसी रिकॉर्ड की पूर्णता तथा बंद-लूप की जाँच करता है: आपके फ़ॉर्म में माँगे गए कॉलम भरे हैं या नहीं, हर ब्रीफ किया गया व्यक्ति हस्ताक्षरकर्ताओं में दिखता है और कोई दो बार हस्ताक्षर नहीं करता, 交底日期 施工日期 से बाद की नहीं है, काम करने वाले 工种 ब्रीफ किए गए 工种 की सूची में आते हैं, रिकॉर्ड अपना 工程部位 और 交底人 बताता है, और उसमें 交底人, 被交底人 तथा 专职安全员 — तीनों हस्ताक्षरों के लिए स्थान है।
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-safety-brief-check
+dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
+```
+
 ## आउटपुट कैसा दिखता है
 
 ![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-hero.png)
@@ -76,13 +83,6 @@ was adequate, whether it was targeted at the right hazards, or whether a signatu
 ## What it does
 
 नियम-सूची, फ़ील्ड और विस्तृत व्यवहार [README.md](README.md#what-it-does) (अंग्रेज़ी मुख्य संस्करण) में हैं। यह प्लगइन केवल उद्धृत धाराओं के सामने शाब्दिक अंतर सूचीबद्ध करता है और हर न चल पाई जाँच को `skipped` में बताता है।
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-safety-brief-check
-dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
-```
 
 ## Configuration
 

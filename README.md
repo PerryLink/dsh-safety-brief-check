@@ -4,6 +4,13 @@
 
 `dsh-safety-brief-check` reads one 安全技术交底记录 — its header fields, its 被交底人 and 签字 lists, and its 工种 lists — and checks that record's own completeness and closure: that the columns your form requires are filled, that every person briefed appears among the signers and that nobody signs twice, that the 交底日期 is not later than the 施工日期, that the trades at work appear in the briefed 工种 list, that the record identifies its 工程部位 and its 交底人, and that it carries a place for the 交底人, 被交底人 and 专职安全员 signatures.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-safety-brief-check
+dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
+```
+
 ## What it looks like
 
 ![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-hero.png)
@@ -87,13 +94,6 @@ signer lists, and its trade lists — applies a versioned rule pack, and returns
 | `SB-005` | the record names its location and its briefer | warn | GB 50870-2013 8.2.1 |
 | `SB-006` | the record carries a place for all three signatures | warn | JGJ 59-2011 3.1.3-3-4) |
 | `SB-007` | the briefing text touches 危险 / 操作规程 / 应急 | warn | GB 50870-2013 8.2.3 |
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-safety-brief-check
-dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
-```
 
 ## Configuration
 

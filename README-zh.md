@@ -4,6 +4,13 @@
 
 `dsh-safety-brief-check` 读取一份安全技术交底记录——表头字段、被交底人与签字两份名单、工种列表——核对这份记录自身的齐备与闭环：本机构表式要求的栏目是否填写、被交底人是否都在签字名单中出现且无人重复签字、交底日期是否不晚于施工日期、实际参建工种是否出现在交底记录的工种列表中、记录是否写明工程部位与交底人、是否留有交底人、被交底人、专职安全员三方签字的位置。
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-safety-brief-check
+dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
+```
+
 ## 实际输出长什么样
 
 ![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-hero.png)
@@ -76,13 +83,6 @@ was adequate, whether it was targeted at the right hazards, or whether a signatu
 ## What it does
 
 规则表、字段说明与行为细节见 [README.md](README.md#what-it-does)（英文主版本）。本插件只列出材料与所引条款之间的字面差异，并对无法执行的检查在 `skipped` 中逐项说明。
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-safety-brief-check
-dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
-```
 
 ## Configuration
 

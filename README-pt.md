@@ -4,6 +4,13 @@
 
 `dsh-safety-brief-check` lê um registo de 安全技术交底记录 —os seus campos de cabeçalho, as suas listas de 被交底人 e de 签字, e as suas listas de 工种— e verifica a completude e o fecho desse próprio registo: se estão preenchidas as colunas que o seu formulário exige, se cada pessoa instruída consta dos signatários e ninguém assina duas vezes, se a 交底日期 não é posterior à 施工日期, se os ofícios que executam o trabalho constam da lista de 工种 instruídos, se o registo identifica o seu 工程部位 e o seu 交底人, e se reserva um lugar para as assinaturas do 交底人, do 被交底人 e do 专职安全员.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-safety-brief-check
+dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
+```
+
 ## Como é a saída
 
 ![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-hero.png)
@@ -76,13 +83,6 @@ was adequate, whether it was targeted at the right hazards, or whether a signatu
 ## What it does
 
 A tabela de regras, os campos e o comportamento detalhado estão em [README.md](README.md#what-it-does) (versão principal em inglês). O plugin apenas lista divergências literais frente às cláusulas citadas e indica em `skipped` cada verificação que não pôde ser executada.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-safety-brief-check
-dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
-```
 
 ## Configuration
 
