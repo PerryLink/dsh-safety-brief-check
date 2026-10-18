@@ -40,11 +40,7 @@ dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
 | 《建筑施工安全检查标准》 | JGJ 59-2011 | SB-001, SB-002, SB-004, SB-006, SB-007 |
 | 《建设工程安全生产管理条例》 | 国务院令第393号 | SB-002, SB-003 |
 
-**Boundary:** this plugin checks one **安全技术交底记录** for what a record can be held to — that the
-columns your form requires are filled, that **everyone briefed appears as having signed**, that the
-briefing is dated no later than the work, that the briefed trades cover the trades doing the work, and
-that the record identifies its location and briefer. It does **not** judge whether the briefing content
-was adequate, whether it was targeted at the right hazards, or whether a signature is genuine.
+**边界（中文译文，以英文原文为准）：** 本插件核对一份 **安全技术交底记录** 在记录层面可以要求到的内容——你的表单所要求的栏目是否填写，**每一位被交底人是否都显示为已签字**，交底日期是否不晚于作业日期，被交底工种是否覆盖实际作业的工种，以及记录是否写明其地点与交底人。它**不**判定交底内容是否充分、交底是否针对了正确的危险源，或签字是否真实。
 
 > ### ⚠️ One `error`, and two annulled mandatory provisions the pack refuses to misuse
 >
