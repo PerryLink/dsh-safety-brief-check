@@ -42,32 +42,19 @@ dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
 
 **边界（中文译文，以英文原文为准）：** 本插件核对一份 **安全技术交底记录** 在记录层面可以要求到的内容——你的表单所要求的栏目是否填写，**每一位被交底人是否都显示为已签字**，交底日期是否不晚于作业日期，被交底工种是否覆盖实际作业的工种，以及记录是否写明其地点与交底人。它**不**判定交底内容是否充分、交底是否针对了正确的危险源，或签字是否真实。
 
-> ### ⚠️ One `error`, and two annulled mandatory provisions the pack refuses to misuse
+> ### ⚠️ 一条 `error`，以及两项已废止的强制性条文——本规则库拒绝误用它们（以英文原文为准）
 >
-> **`SB-002` is the only `error`-level rule**, and it rests on an administrative regulation:
-> 《建设工程安全生产管理条例》**第二十七条** requires the briefing to be given "并由双方签字确认", with
-> 第六十四条第（一）项 as its penalty. Everything else is capped at `warn` or `info`.
+> **`SB-002` 是唯一一条 `error` 级规则**，它依据的是一部行政法规：《建设工程安全生产管理条例》**第二十七条**要求交底「并由双方签字确认」，并以第六十四条第（一）项作为罚则。其余规则的严重级上限都是 `warn` 或 `info`。
 >
-> The pack records two corrections that a reader would otherwise get wrong:
+> 规则库记录了两处更正，否则读者容易弄错：
 >
-> **1. JGJ 59-2011's clause 3.1.3 — this plugin's closest fit — is a *recommendatory* assessment clause.**
-> The standard's only mandatory provisions were 4.0.1 and 5.0.3, and **both were annulled** by
-> 住房和城乡建设部公告 2022 年第 164 号 (effective 2023-06-01). So `SB-006` (three-party signatures) is
-> `warn`, and its note says why.
+> **1. JGJ 59-2011 第 3.1.3 条——与本插件最贴近的条款——是一条*推荐性*的检查评定条款。** 该标准原本仅有 4.0.1 与 5.0.3 两条强制性条文，而**两条均已被废止**：住房和城乡建设部公告 2022 年第 164 号（2023-06-01 起施行）。因此 `SB-006`（三方签字）为 `warn`，其 note 写明了原因。
 >
-> **2. GB 50656-2011's clause 10.0.6 lost its mandatory status by the same公告, and its "班前安全操作规程交底"
-> wording sits in the 条文说明, not in a clause.** So this pack **does not cite that standard at all** —
-> a test asserts the number never appears.
+> **2. GB 50656-2011 第 10.0.6 条因同一份公告失去强制性效力，且其「班前安全操作规程交底」的表述位于条文说明，而不在条文之中。** 因此本规则库**完全不引用该标准**——有测试断言该标准编号从不出现在库中。
 >
-> **National law has no provision on pre-shift meetings.** 《安全生产法》's 119 articles contain no
-> occurrence of 班前; neither the law, an administrative regulation, a departmental rule nor a national
-> standard addresses it. Provincial documents (Shandong's 班前"晨会" guidance, for instance) exist but are
-> **local, not national** — so any pre-shift check ships unconfigured and the pack says so.
+> **国家法律对班前会没有任何规定。**《安全生产法》共 119 条，其中没有出现「班前」二字；无论是该法、行政法规、部门规章还是国家标准，都没有涉及此事。省级文件（例如山东的班前「晨会」指引）确实存在，但属于**地方性文件，不是国家规定**——因此任何班前检查出厂时都未配置，规则库对此如实说明。
 >
-> Stated limits: the signature check **compares name lists only** and cannot tell whether a signature is
-> the person's own; the content check is a **literal word-occurrence test** and cannot tell whether a
-> briefing was any good — JGJ 59-2011's own scoring table deducts points for "针对性不强", a judgement no
-> string operation can make.
+> 已写明的局限：签字核对**只比较姓名清单**，无法判断签字是否出自本人；内容核对是**字面词出现与否的检测**，无法判断一次交底做得好不好——JGJ 59-2011 自己的评分表会对「针对性不强」扣分，而这是任何字符串操作都做不出的判断。
 
 ## Compatibility
 
