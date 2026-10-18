@@ -1,5 +1,7 @@
 # dsh-safety-brief-check — Verificação da completude do registo de instrução técnica de segurança e do fecho de assinaturas
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-safety-brief-check` lê um registo de 安全技术交底记录 —os seus campos de cabeçalho, as suas listas de 被交底人 e de 签字, e as suas listas de 工种— e verifica a completude e o fecho desse próprio registo: se estão preenchidas as colunas que o seu formulário exige, se cada pessoa instruída consta dos signatários e ninguém assina duas vezes, se a 交底日期 não é posterior à 施工日期, se os ofícios que executam o trabalho constam da lista de 工种 instruídos, se o registo identifica o seu 工程部位 e o seu 交底人, e se reserva um lugar para as assinaturas do 交底人, do 被交底人 e do 专职安全员.
