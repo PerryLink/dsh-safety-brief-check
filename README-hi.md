@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-safety-brief-check?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-safety-brief-check?ref=badge)
 
 `dsh-safety-brief-check` एक 安全技术交底记录 पढ़ता है — उसके हेडर फ़ील्ड, 被交底人 और 签字 की सूचियाँ, और 工种 की सूचियाँ — और उसी रिकॉर्ड की पूर्णता तथा बंद-लूप की जाँच करता है: आपके फ़ॉर्म में माँगे गए कॉलम भरे हैं या नहीं, हर ब्रीफ किया गया व्यक्ति हस्ताक्षरकर्ताओं में दिखता है और कोई दो बार हस्ताक्षर नहीं करता, 交底日期 施工日期 से बाद की नहीं है, काम करने वाले 工种 ब्रीफ किए गए 工种 की सूची में आते हैं, रिकॉर्ड अपना 工程部位 और 交底人 बताता है, और उसमें 交底人, 被交底人 तथा 专职安全员 — तीनों हस्ताक्षरों के लिए स्थान है।
 
