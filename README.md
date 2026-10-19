@@ -28,6 +28,35 @@ dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
 
 The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
+#### Detailed output
+
+**Tool** `safety_brief_check`
+
+**Input**
+
+~~~json
+{"被交底人":"李四、王五、赵六","签字":"李四、王五"}
+~~~
+ 
+**Output**
+
+~~~json
+{
+  "id": "dsh-safety-brief-check.SB-002.029bddbd",
+  "ruleId": "SB-002",
+  "severity": "error",
+  "locator": {
+    "row": 0,
+    "column": "被交底人"
+  },
+  "found": "被交底人「赵六」在签字列表中未出现",
+  "expected": "被交底人应当在交底记录上签字确认",
+  "fix": "核对是否漏签；本条只比对名单，不判断签字是否为本人所签"
+}
+~~~
+
+*Observed from `dsh-safety-brief-check/tests/fixtures/SB-002/SB-002-unsafe.json`*
+
 | You ask | What it answers |
 |---|---|
 | One of the people briefed never signed. What does the report say? | `SB-002` — the pack's only `error`-level rule — compares the 被交底人 list with the 签字 list and reports every person who does not appear in it; a name that appears twice in the signature list is reported separately, because the two gaps need different fixes. It only compares the two lists: it cannot tell whether a signature is the person's own, and it does not require per-person signing — if your institution allows one signature for a group, say so in the material or list the rule under `disabledRules`. |

@@ -30,6 +30,35 @@ Saída real deste plugin sobre o seu próprio fixture de teste `SB-002` — não
 A tabela abaixo é o conjunto de exemplos: a primeira linha é o caso detalhado e as demais são casos curtos.
 
 
+#### Saída detalhada
+
+**Ferramenta** `safety_brief_check`
+
+**Entrada**
+
+~~~json
+{"被交底人":"李四、王五、赵六","签字":"李四、王五"}
+~~~
+ 
+**Saída**
+
+~~~json
+{
+  "id": "dsh-safety-brief-check.SB-002.029bddbd",
+  "ruleId": "SB-002",
+  "severity": "error",
+  "locator": {
+    "row": 0,
+    "column": "被交底人"
+  },
+  "found": "被交底人「赵六」在签字列表中未出现",
+  "expected": "被交底人应当在交底记录上签字确认",
+  "fix": "核对是否漏签；本条只比对名单，不判断签字是否为本人所签"
+}
+~~~
+
+*Observado em `dsh-safety-brief-check/tests/fixtures/SB-002/SB-002-unsafe.json`*
+
 | Você pergunta | O que ele responde |
 |---|---|
 | Uma das pessoas instruídas nunca assinou. O que diz o relatório? | `SB-002` —a única regra de nível `error` do pacote— compara a lista de 被交底人 com a lista de 签字 e reporta cada pessoa que não aparece nela; um nome que aparece duas vezes na lista de assinaturas é reportado em separado, porque as duas falhas se corrigem de maneira diferente. Compara apenas as duas listas: não consegue saber se uma assinatura é da própria pessoa e não exige assinatura individual — se a sua instituição admite uma assinatura coletiva, indique-o no material ou inclua a regra em `disabledRules`. |
