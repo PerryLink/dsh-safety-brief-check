@@ -15,13 +15,19 @@ dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
 
 ## Como é a saída
 
-![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-hero.png)
+![Diagrama de fluxo de dsh-safety-brief-check: documento → regras → achados.](docs/assets/dsh-safety-brief-check-flow.svg)
 
-![Animated terminal demo of dsh-safety-brief-check](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-demo.gif)
+*Visão geral do fluxo: documento → regras → achados. Os exemplos abaixo usam a superfície real de comandos.*
+
 
 Saída real deste plugin sobre o seu próprio fixture de teste `SB-002` — não é uma simulação. O pacote de regras não inventa citações: cada achado nomeia a cláusula aplicada e se o seu excerpt é uma citação literal ou uma inferência de princípio.
 
 ## O que ele responde
+
+### Exemplos
+
+A tabela abaixo é o conjunto de exemplos: a primeira linha é o caso detalhado e as demais são casos curtos.
+
 
 | Você pergunta | O que ele responde |
 |---|---|

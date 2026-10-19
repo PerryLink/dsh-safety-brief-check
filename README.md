@@ -15,13 +15,17 @@ dsh --profile <name> --dump-config | grep 'dsh-safety-brief-check'
 
 ## What it looks like
 
-![Terminal demo of dsh-safety-brief-check: real output over its SB-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-hero.png)
+![Workflow diagram for dsh-safety-brief-check: document → rule pack → findings.](docs/assets/dsh-safety-brief-check-flow.svg)
 
-![Animated terminal demo of dsh-safety-brief-check](https://raw.githubusercontent.com/PerryLink/dsh-safety-brief-check/main/docs/assets/dsh-safety-brief-check-demo.gif)
+*Workflow overview: document → rule pack → findings. The examples below use the real command surface.*
 
-Real output from this plugin over its own `SB-002` test fixture — not a mock-up. The rule pack ships no invented quotations: a finding names the clause it applied and whether that excerpt is a verbatim quotation or a derived principle.
+
 
 ## What it answers
+
+### Examples
+
+The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
 | You ask | What it answers |
 |---|---|
