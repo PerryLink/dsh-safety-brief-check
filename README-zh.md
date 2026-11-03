@@ -1,6 +1,6 @@
 # dsh-safety-brief-check — 安全技术交底记录要素齐备性与签字闭环核对
 
-## 快速试跑（1 分钟）
+### 快速试跑（1 分钟）
 
 ```bash
 node samples/quickstart/run.mjs --check
