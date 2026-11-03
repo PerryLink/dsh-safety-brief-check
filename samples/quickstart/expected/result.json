@@ -1,0 +1,10 @@
+{
+  "tool": "safety_brief_check",
+  "issueCount": 2,
+  "summary": {
+    "error": 0,
+    "warn": 2,
+    "info": 0
+  },
+  "skippedCount": 5
+}
