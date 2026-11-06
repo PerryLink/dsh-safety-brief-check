@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-dark.svg">
-  <img src="docs/assets/dsh-safety-brief-check-flow-light.svg" width="100%" alt="dsh-safety-brief-check data flow: file / material (JSON or YAML) → safety_brief_check tool → rules/*.yaml rule pack (SB-001..SB-007) → report (issues[] + skipped[]) → reviewer; configuration arrives through rulesFile / disabledRules / onlyRules / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-safety-brief-check-hero-en-light.webp" width="100%" alt="dsh-safety-brief-check: the plugin name and its two value lines on the left; on the right one safety briefing record whose briefer cell is empty and tagged SB-005 and SB-006, with all three recipients matched by three signatures; beside it the run — 2 issues (error 0, warn 2, info 0) and 5 skipped (columns unset, trades unset, names matched, dates ordered, terms present)">
 </picture>
 
 # dsh-safety-brief-check
@@ -43,6 +43,11 @@ It does not judge whether the briefing content was adequate, whether it targeted
 - **Who it is for**: safety officers, site foremen, and document controllers; no command line required — hand the material over in chat.
 - **What you give it**: the source material the check works on (a table, register or document); the original is never modified. Excel can be converted to JSON/YAML first, in chat if the platform supports it.
 - **What it returns**: a "which rule, which column, what differs, how to fix it" list; every check that could not run is listed in `skipped` with its reason.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-safety-brief-check-flow-v5-light.svg" width="100%" alt="dsh-safety-brief-check structure: on the left the normalised BriefInput fields of one briefing record (briefer empty) plus parse.ts column aliases, name splitting and trimming; in the middle the seven rules SB-001..SB-007 in pack order, each listing the fields it reads, its severity and its exit; on the right the report — issues[] holds two (SB-005, SB-006) and skipped[] holds five (SB-001 unset, SB-004 no workTrades, SB-002/003/007 no difference); the footer notes the severity caps (direct → error, derived-from-principle → at most warn, institutional-configuration → at most info) and that skipped is not a pass)">
+</picture>
 
 ## Three-step setup
 
@@ -389,7 +394,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"safety_brief_check","issueCount":2,"summary":{"error":0,"warn":2,"info":0},"skippedCount":5}
 ```
 
-The sample input lives in `samples/quickstart/input/`, the expected output in `samples/quickstart/expected/result.json`, and the screenshot in `docs/assets/quickstart.png`. The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) and are safe to re-run; the older single-skin flow diagram, hero and demo assets stay in `docs/assets/` for external deep links, and the READMEs reference only the new light/dark pair.
+The sample input lives in `samples/quickstart/input/`, the expected output in `samples/quickstart/expected/result.json`, and the screenshot in `docs/assets/quickstart.png`. The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) — the hero banners with Pillow (zh/en × light/dark, four WebP files) and the structure figure as hand-written SVG (flow-v5, light/dark) — and are safe to re-run; the older single-skin flow diagram, hero and demo assets stay in `docs/assets/` for external deep links, and the READMEs reference only the new hero and flow-v5 pair.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `safety`, `brief`
 

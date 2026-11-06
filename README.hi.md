@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-dark.svg">
-  <img src="docs/assets/dsh-safety-brief-check-flow-light.svg" width="100%" alt="dsh-safety-brief-check डेटा प्रवाह: file / material (JSON या YAML) → safety_brief_check उपकरण → rules/*.yaml नियम-पैक (SB-001..SB-007) → रिपोर्ट (issues[] + skipped[]) → समीक्षक; कॉन्फ़िगरेशन rulesFile / disabledRules / onlyRules / timeoutMs से आता है">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-safety-brief-check-hero-en-light.webp" width="100%" alt="dsh-safety-brief-check: बाईं ओर प्लगइन का नाम और मूल्य की दो पंक्तियाँ; दाईं ओर एक सुरक्षा तकनीकी ब्रीफिंग रजिस्टर जिसका ब्रीफर कक्ष खाली है और SB-005 तथा SB-006 से चिह्नित है, और तीनों ब्रीफ किए गए व्यक्ति तीन हस्ताक्षरों से एक-एक करके मेल खाते हैं; उसके पास इस बार के चलाने का परिणाम: 2 issue (error 0, warn 2, info 0) और 5 skipped (कॉलम कॉन्फ़िगर नहीं, ट्रेड नहीं दिए, नाम मेल खाते, तारीखें क्रम में, तीनों शब्द मौजूद)">
 </picture>
 
 # dsh-safety-brief-check
@@ -43,6 +43,11 @@ dsh plugin --profile <name> add dsh-safety-brief-check
 - **किसके लिए**: सुरक्षा अधिकारी, साइट फ़ोरमैन और दस्तावेज़ प्रबंधक; कमांड लाइन की ज़रूरत नहीं — सामग्री चैट में सौंप दें।
 - **आप क्या देते हैं**: जिस सामग्री पर जाँच होती है (तालिका, रजिस्टर या दस्तावेज़); मूल कभी नहीं बदला जाता। Excel को पहले JSON/YAML में बदला जा सकता है, प्लेटफ़ॉर्म समर्थन दे तो चैट में ही।
 - **यह क्या देता है**: «कौन-सा नियम, कौन-सा कॉलम, क्या अंतर है, कैसे सुधारें» की सूची; हर वह जाँच जो नहीं चल सकी, `skipped` में कारण के साथ दर्ज होती है।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-safety-brief-check-flow-v5-light.svg" width="100%" alt="dsh-safety-brief-check की संरचना: बाईं ओर एक रजिस्टर के सामान्यीकृत BriefInput फ़ील्ड (ब्रीफर खाली) और parse.ts का काम (कॉलम alias, सूची विभाजन, स्पेस हटाना); बीच में सात नियम SB-001..SB-007 पैक क्रम में, हर एक अपने पढ़े जाने वाले फ़ील्ड, गंभीरता और निकास के साथ; दाईं ओर रिपोर्ट: issues[] में दो (SB-005, SB-006) और skipped[] में पाँच (SB-001 कॉन्फ़िगर नहीं, SB-004 workTrades नहीं, SB-002/003/007 में कोई अंतर नहीं); तल पर गंभीरता की सीमाएँ (direct → error, derived-from-principle → अधिकतम warn, institutional-configuration → अधिकतम info) और यह टिप्पणी कि skipped का अर्थ पास नहीं है)">
+</picture>
 
 ## तीन चरणों में शुरुआत
 
@@ -389,7 +394,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"safety_brief_check","issueCount":2,"summary":{"error":0,"warn":2,"info":0},"skippedCount":5}
 ```
 
-नमूना इनपुट `samples/quickstart/input/` में, अपेक्षित आउटपुट `samples/quickstart/expected/result.json` में और स्क्रीनशॉट `docs/assets/quickstart.png` में है। README की तस्वीरें [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) से कार्यक्रमपूर्वक बनती हैं और दोबारा चलाना सुरक्षित है; पुराना एक-संस्करण प्रवाह-चित्र, hero और डेमो बाहरी लिंक के लिए `docs/assets/` में रहते हैं, और README केवल नए हल्के/गहरे जोड़े का संदर्भ देते हैं।
+नमूना इनपुट `samples/quickstart/input/` में, अपेक्षित आउटपुट `samples/quickstart/expected/result.json` में और स्क्रीनशॉट `docs/assets/quickstart.png` में है। README की तस्वीरें [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से कार्यक्रमपूर्वक बनती हैं — hero बैनर Pillow से (zh/en × लाइट/डार्क, चार WebP फ़ाइलें) और संरचना चित्र हाथ से लिखे SVG से (flow-v5, लाइट/डार्क) — और दोबारा चलाना सुरक्षित है; पुराना एक-संस्करण प्रवाह-चित्र, hero और डेमो बाहरी लिंक के लिए `docs/assets/` में रहते हैं, और README केवल नए hero और flow-v5 जोड़े का संदर्भ देते हैं।
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `safety`, `brief`
 

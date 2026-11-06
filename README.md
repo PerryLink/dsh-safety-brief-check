@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-dark.svg">
-  <img src="docs/assets/dsh-safety-brief-check-flow-light.svg" width="100%" alt="dsh-safety-brief-check 数据流：file / material（JSON 或 YAML）→ safety_brief_check 工具 → rules/*.yaml 规则包（SB-001..SB-007）→ report（issues[] + skipped[]）→ 审核人裁决；配置经 rulesFile / disabledRules / onlyRules / timeoutMs 注入">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-safety-brief-check-hero-zh-light.webp" width="100%" alt="dsh-safety-brief-check 配图：左列是插件名、两行价值句与「只读材料、不联网、不调用模型、不写盘」的边界；右侧是一份安全技术交底记录——交底人一栏为空，标出 SB-005 与 SB-006；三名被交底人与三条签字逐一相符；旁边是本次运行结果：issues 2 条（error 0、warn 2、info 0），skipped 5 条（栏目未配置、未提供工种、名单相符、日期在先、三词齐备）">
 </picture>
 
 # dsh-safety-brief-check
@@ -43,6 +43,11 @@ dsh plugin --profile <name> add dsh-safety-brief-check
 - **给谁用**：安全员、施工班组长、资料员；不用懂命令行，在对话里把材料交给它即可。
 - **你交什么**：这项核对用到的原始材料（表格、清单或文书）；不改原件。Excel 可先转成 JSON/YAML，对话里也能代转。
 - **它交什么**：一份「哪一条、哪一栏、差什么、怎么补」的清单；没能执行的检查逐条列入 `skipped` 并写明原因。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-safety-brief-check-flow-v5-light.svg" width="100%" alt="dsh-safety-brief-check 结构图：左侧是一份交底记录归一化后的 BriefInput 字段（交底人为空）与 parse.ts 的列名别名、名单切分和去空白；中间是 7 条规则（SB-001..SB-007）按规则包顺序逐条列出读取的字段、严重级与出口；右侧是 report——issues[] 收 2 条（SB-005、SB-006），skipped[] 收 5 条（SB-001 未配置、SB-004 未提供工种、SB-002 与 SB-003 与 SB-007 无差异）；底部注明严重级封顶与「skipped 不等于通过」">
+</picture>
 
 ## 三步上手
 
@@ -387,7 +392,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"safety_brief_check","issueCount":2,"summary":{"error":0,"warn":2,"info":0},"skippedCount":5}
 ```
 
-样例输入在 `samples/quickstart/input/`，期望输出在 `samples/quickstart/expected/result.json`，截图见 `docs/assets/quickstart.png`。README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python + Pillow），可重复执行；旧的单版流程图、hero 与演示图保留在 `docs/assets/` 供外链使用，README 只引用新生成的深浅双版。
+样例输入在 `samples/quickstart/input/`，期望输出在 `samples/quickstart/expected/result.json`，截图见 `docs/assets/quickstart.png`。README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成——hero 横幅用 Pillow（中文/英文 × 深浅共四张 WebP），结构图用手写 SVG（flow-v5 深浅两版）——可重复执行；旧的单版流程图、hero 与演示图保留在 `docs/assets/` 供外链使用，README 只引用新的 hero 与 flow-v5。
 
 Topics：`deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `safety`, `brief`
 

@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-dark.svg">
-  <img src="docs/assets/dsh-safety-brief-check-flow-light.svg" width="100%" alt="Fluxo de dados do dsh-safety-brief-check: file / material (JSON ou YAML) → ferramenta safety_brief_check → pacote de regras rules/*.yaml (SB-001..SB-007) → relatório (issues[] + skipped[]) → revisor; a configuração chega por rulesFile / disabledRules / onlyRules / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-safety-brief-check-hero-en-light.webp" width="100%" alt="dsh-safety-brief-check: à esquerda o nome do plugin e as suas duas frases de valor; à direita um registo de instrução técnica de segurança cujo campo de instrutor está vazio e marcado com SB-005 e SB-006, com as três pessoas instruídas emparelhadas uma a uma com três assinaturas; ao lado, o resultado da execução: 2 ocorrências (error 0, warn 2, info 0) e 5 omitidas (colunas por configurar, ofícios por fornecer, nomes coincidentes, datas em ordem, três termos presentes)">
 </picture>
 
 # dsh-safety-brief-check
@@ -43,6 +43,11 @@ Não decide se o conteúdo da instrução foi suficiente, se visou os perigos ce
 - **Para quem**: responsáveis de segurança, encarregados de obra e gestores documentais; não é preciso saber usar a linha de comandos — entregue o material no chat.
 - **O que entrega**: o material de origem sobre o qual a verificação trabalha (uma tabela, um registo ou um documento); o original nunca é modificado. O Excel pode ser convertido antes para JSON/YAML, no chat se a plataforma o permitir.
 - **O que recebe**: uma lista de «que regra, que coluna, o que difere e como corrigir»; cada verificação que não pôde ser executada é enumerada em `skipped` com o motivo.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-safety-brief-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-safety-brief-check: à esquerda os campos BriefInput normalizados de um registo (instrutor vazio) e o trabalho do parse.ts (alias de colunas, divisão de listas, corte de espaços); ao centro as sete regras SB-001..SB-007 pela ordem do pacote, cada uma com os campos que lê, a sua gravidade e a sua saída; à direita o relatório: issues[] com duas entradas (SB-005, SB-006) e skipped[] com cinco (SB-001 sem configuração, SB-004 sem workTrades, SB-002/003/007 sem diferenças); no rodapé, os limites de gravidade (direct → error, derived-from-principle → no máximo warn, institutional-configuration → no máximo info) e a nota de que skipped não equivale a aprovado)">
+</picture>
 
 ## Instalação em três passos
 
@@ -389,7 +394,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"safety_brief_check","issueCount":2,"summary":{"error":0,"warn":2,"info":0},"skippedCount":5}
 ```
 
-A entrada do exemplo está em `samples/quickstart/input/`, a saída esperada em `samples/quickstart/expected/result.json` e a captura em `docs/assets/quickstart.png`. As imagens do README são geradas por programa, [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow), e podem ser executadas de novo sem risco; o diagrama de fluxo de uma só versão, o hero e a demo antigos ficam em `docs/assets/` para ligações externas, e os README só referenciam o novo par claro/escuro.
+A entrada do exemplo está em `samples/quickstart/input/`, a saída esperada em `samples/quickstart/expected/result.json` e a captura em `docs/assets/quickstart.png`. As imagens do README são geradas por programa, [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) — as faixas hero com Pillow (zh/en × claro/escuro, quatro ficheiros WebP) e a figura de estrutura como SVG escrito à mão (flow-v5, claro/escuro) — e podem ser executadas de novo sem risco; o diagrama de fluxo de uma só versão, o hero e a demo antigos ficam em `docs/assets/` para ligações externas, e os README só referenciam o novo hero e o par flow-v5.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `safety`, `brief`
 

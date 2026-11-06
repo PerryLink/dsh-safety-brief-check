@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-dark.svg">
-  <img src="docs/assets/dsh-safety-brief-check-flow-light.svg" width="100%" alt="Flujo de datos de dsh-safety-brief-check: file / material (JSON o YAML) → herramienta safety_brief_check → paquete de reglas rules/*.yaml (SB-001..SB-007) → informe (issues[] + skipped[]) → revisor; la configuración llega por rulesFile / disabledRules / onlyRules / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-safety-brief-check-hero-en-light.webp" width="100%" alt="dsh-safety-brief-check: a la izquierda el nombre del plugin y sus dos frases de valor; a la derecha un registro de instrucción técnica de seguridad cuyo campo de instructor está vacío y marcado con SB-005 y SB-006, con las tres personas instruidas casadas una a una con tres firmas; junto a él el resultado de la ejecución: 2 incidencias (error 0, warn 2, info 0) y 5 omitidas (columnas sin configurar, oficios sin aportar, nombres coincidentes, fechas en orden, tres términos presentes)">
 </picture>
 
 # dsh-safety-brief-check
@@ -43,6 +43,11 @@ No decide si el contenido de la instrucción fue suficiente, si apuntó a los pe
 - **Para quién**: responsables de seguridad, jefes de obra y encargados de documentación; no hace falta saber usar la línea de comandos — entregue el material en el chat.
 - **Qué aporta usted**: el material de origen sobre el que trabaja la comprobación (una tabla, un registro o un documento); el original nunca se modifica. Excel puede convertirse antes a JSON/YAML, en el chat si la plataforma lo permite.
 - **Qué devuelve**: una lista de «qué regla, qué columna, qué difiere y cómo corregirlo»; cada comprobación que no pudo ejecutarse se enumera en `skipped` con su motivo.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-safety-brief-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-safety-brief-check-flow-v5-light.svg" width="100%" alt="Estructura de dsh-safety-brief-check: a la izquierda los campos BriefInput normalizados de un registro (instructor vacío) y el trabajo de parse.ts (alias de columnas, división de listas, recorte de espacios); en el centro las siete reglas SB-001..SB-007 en el orden del paquete, cada una con los campos que lee, su gravedad y su salida; a la derecha el informe: issues[] con dos entradas (SB-005, SB-006) y skipped[] con cinco (SB-001 sin configurar, SB-004 sin workTrades, SB-002/003/007 sin diferencias); al pie, los topes de gravedad (direct → error, derived-from-principle → como máximo warn, institutional-configuration → como máximo info) y la nota de que skipped no equivale a aprobado)">
+</picture>
 
 ## Instalación en tres pasos
 
@@ -389,7 +394,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"safety_brief_check","issueCount":2,"summary":{"error":0,"warn":2,"info":0},"skippedCount":5}
 ```
 
-La entrada del ejemplo está en `samples/quickstart/input/`, la salida esperada en `samples/quickstart/expected/result.json` y la captura en `docs/assets/quickstart.png`. Las imágenes del README las genera un programa, [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow), y se pueden volver a ejecutar sin riesgo; el diagrama de flujo de una sola versión, el hero y la demo antiguos permanecen en `docs/assets/` para enlaces externos, y los README solo referencian el nuevo par claro/oscuro.
+La entrada del ejemplo está en `samples/quickstart/input/`, la salida esperada en `samples/quickstart/expected/result.json` y la captura en `docs/assets/quickstart.png`. Las imágenes del README las genera un programa, [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) — las bandas hero con Pillow (zh/en × claro/oscuro, cuatro archivos WebP) y la figura de estructura como SVG escrito a mano (flow-v5, claro/oscuro) — y se pueden volver a ejecutar sin riesgo; el diagrama de flujo de una sola versión, el hero y la demo antiguos permanecen en `docs/assets/` para enlaces externos, y los README solo referencian el nuevo hero y el par flow-v5.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `safety`, `brief`
 
