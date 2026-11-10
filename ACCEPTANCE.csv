@@ -1,0 +1,3 @@
+req_id,metric,threshold,actual,script,evidence_sha256,pass,source,counted
+CHK-SAFETY-BRIEF-CHECK-A01,vitest 真实运行,37/37,37,npx vitest run,01d5ba2faf4f77ee2a8b02f3c5af558185123d9c2d5f4b16d57a28c239266c0d,true,public/synthetic,false
+CHK-SAFETY-BRIEF-CHECK-A02,失败用例数,0,0,npx vitest run,01d5ba2faf4f77ee2a8b02f3c5af558185123d9c2d5f4b16d57a28c239266c0d,true,public/synthetic,false
