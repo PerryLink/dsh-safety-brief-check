@@ -49,6 +49,11 @@ No decide si el contenido de la instrucción fue suficiente, si apuntó a los pe
   <img src="docs/assets/dsh-safety-brief-check-flow-v5-light.svg" width="100%" alt="Estructura de dsh-safety-brief-check: a la izquierda los campos BriefInput normalizados de un registro (instructor vacío) y el trabajo de parse.ts (alias de columnas, división de listas, recorte de espacios); en el centro las siete reglas SB-001..SB-007 en el orden del paquete, cada una con los campos que lee, su gravedad y su salida; a la derecha el informe: issues[] con dos entradas (SB-005, SB-006) y skipped[] con cinco (SB-001 sin configurar, SB-004 sin workTrades, SB-002/003/007 sin diferencias); al pie, los topes de gravedad (direct → error, derived-from-principle → como máximo warn, institutional-configuration → como máximo info) y la nota de que skipped no equivale a aprobado)">
 </picture>
 
+![dsh-safety-brief-check: ejecución real de terminal](docs/assets/dsh-safety-brief-check-demo.gif)
+
+*Repetición animada de una ejecución real registrada en este repositorio.*
+
+
 ## Instalación en tres pasos
 
 1. **Instalar** (elija un canal):

@@ -49,6 +49,11 @@ Não decide se o conteúdo da instrução foi suficiente, se visou os perigos ce
   <img src="docs/assets/dsh-safety-brief-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-safety-brief-check: à esquerda os campos BriefInput normalizados de um registo (instrutor vazio) e o trabalho do parse.ts (alias de colunas, divisão de listas, corte de espaços); ao centro as sete regras SB-001..SB-007 pela ordem do pacote, cada uma com os campos que lê, a sua gravidade e a sua saída; à direita o relatório: issues[] com duas entradas (SB-005, SB-006) e skipped[] com cinco (SB-001 sem configuração, SB-004 sem workTrades, SB-002/003/007 sem diferenças); no rodapé, os limites de gravidade (direct → error, derived-from-principle → no máximo warn, institutional-configuration → no máximo info) e a nota de que skipped não equivale a aprovado)">
 </picture>
 
+![dsh-safety-brief-check: execução real de terminal](docs/assets/dsh-safety-brief-check-demo.gif)
+
+*Repetição animada de uma execução real registrada neste repositório.*
+
+
 ## Instalação em três passos
 
 1. **Instalar** (escolha um canal):

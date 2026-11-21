@@ -49,6 +49,11 @@ dsh plugin --profile <name> add dsh-safety-brief-check
   <img src="docs/assets/dsh-safety-brief-check-flow-v5-light.svg" width="100%" alt="dsh-safety-brief-check की संरचना: बाईं ओर एक रजिस्टर के सामान्यीकृत BriefInput फ़ील्ड (ब्रीफर खाली) और parse.ts का काम (कॉलम alias, सूची विभाजन, स्पेस हटाना); बीच में सात नियम SB-001..SB-007 पैक क्रम में, हर एक अपने पढ़े जाने वाले फ़ील्ड, गंभीरता और निकास के साथ; दाईं ओर रिपोर्ट: issues[] में दो (SB-005, SB-006) और skipped[] में पाँच (SB-001 कॉन्फ़िगर नहीं, SB-004 workTrades नहीं, SB-002/003/007 में कोई अंतर नहीं); तल पर गंभीरता की सीमाएँ (direct → error, derived-from-principle → अधिकतम warn, institutional-configuration → अधिकतम info) और यह टिप्पणी कि skipped का अर्थ पास नहीं है)">
 </picture>
 
+![dsh-safety-brief-check का असली टर्मिनल रन](docs/assets/dsh-safety-brief-check-demo.gif)
+
+*इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
+
+
 ## तीन चरणों में शुरुआत
 
 1. **इंस्टॉल करें** (कोई एक माध्यम चुनें):

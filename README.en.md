@@ -125,6 +125,10 @@ Every PerryLink plugin is listed in the built-in DSH Desktop market: **Market â†
 
 ### Examples
 
+![dsh-safety-brief-check: real terminal run](docs/assets/dsh-safety-brief-check-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
 These are the plugin's real entry points; install once, then call one. The first row is the detailed walkthrough, the rest are short cases.
 
 The output below is the plugin's real run against its own `SB-002` test fixture, not a mock-up; the rule pack fabricates no citation either â€” every finding names the clause it rests on, and whether that clause's `excerpt` is a verbatim quotation or a derived principle.
