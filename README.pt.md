@@ -11,6 +11,8 @@
 
 Um plugin verificador de registos de instrução para o DeepSeek Harness: lê um registo (cabeçalho, listas de 被交底人 e de 签字, lista de 工种), aplica o pacote de regras versionado que traz consigo (`SB-001`..`SB-007`) e apenas lista as diferenças que consegue apontar dentro do material — nunca um veredito de conformidade, nunca uma atribuição de responsabilidade.
 
+Última verificação: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Instalar](#instalação-em-três-passos) · [Configuração](#configuração) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -52,7 +54,6 @@ Não decide se o conteúdo da instrução foi suficiente, se visou os perigos ce
 ![dsh-safety-brief-check: execução real de terminal](docs/assets/dsh-safety-brief-check-demo.gif)
 
 *Repetição animada de uma execução real registrada neste repositório.*
-
 
 ## Instalação em três passos
 
