@@ -7,6 +7,8 @@
 
 # dsh-safety-brief-check
 
+Current version `0.2.13`.
+
 **Check one safety technical briefing record and get back the exact "which rule, which column, what differs, how to fix it" list — the verdict stays with the reviewer.**
 
 A briefing-record checker plugin for DeepSeek Harness: it reads one record (header, recipient and signer lists, trade list), applies the versioned rule pack it ships (`SB-001`..`SB-007`), and lists only the differences it can point to inside the material — no compliance verdict, no liability finding, no substitute for the reviewer.
